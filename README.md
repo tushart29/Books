@@ -1,23 +1,20 @@
 # Books
-Page
-1
-of 2
+
 Assignment #4 Project (Design and implementation turn-in/compile instructions on canvas.)
 A regional library, Safely Housing Hallowed Hardcopies (SHHH), wishes to automate the process of tracking
 books. This task is simplified by the fact that SHHH has only three types of books — children's books, fiction,
-periodicals — each sorted differently as described below.
-SHHH wishes to be able to allow patrons to check out books, return books, and to display the contents of the
-library (all three categories) and display a report of a patron's history at any time. All books are displayed by
-category, sorted within the category. Output must be formatted for easy reading with data in columns. An
+periodicals — each sorted differently as described below. SHHH wishes to be able to allow patrons to check out books, return books, and to display the contents of the library (all three categories) and display a report of a patron's history at any time. All books are displayed by category, sorted within the category. Output must be formatted for easy reading with data in columns. An
 example will be provided later.
 Design and write a program that does the following:
 – Initialize the contents of each of the three categories of books
 –Process an arbitrary sequence of check-outs, returns, and displays of different kinds of information
+
 Notes
 – The library stores:
  Children's books sorted by title, then by author
  Fiction books sorted by author, then by title
  Periodicals sorted by date (year, then month), then by title
+
 Assume each item is uniquely identified by its sorting criteria (other information not used when sorting or
 retrieving). This data is minimal. In real life, there would be much more data so do not problem solve based
 on this minimal amount of data per book. Typically, each item would have more data and be more varied.
@@ -25,24 +22,27 @@ A data file is used for the initialization. One line in the file contains inform
 processing, the first character of each line indicates this book type: children's books are marked with a 'C' for
 children, 'F' for fiction, and ‘P’ for periodicals. After the type is author (comma terminated), then title
 (comma terminated), and date (year, int type). Note that periodicals do not have an author and that the date
-will include month and year (both ints). For example,
+will include month and year (both ints). 
+For example,
 F Pirsig Robert, Zen & the Art of Motorcycle Maint, 1974
 P Communications of the ACM, 3 2001
 P Communications of the ACM, 12 1998
 Z Blah blah blah blah blah blah
 C Seuss Dr., Yertle the Turtle, 1950
 C Williams Jay, Danny Dunn & the Homework Machine, 1959
+
 You can assume the format is correct, but codes may be invalid; e.g., the 'Z' code says the line of data is not
 valid. The library owns five copies of each item in the data file except periodicals where it only owns one
 copy. While the data for an item is minimal, do not assume (i.e., design and implement) that is the case.
 Design and implement as though there may be much more data for an item, e.g., 100 pieces of data on each
 book. Everything, including the output, could vary greatly if there was more data. Your design and
 implementation should be well designed and efficiently implemented for any amount of information.
+
 – Library patron information will also be found in a second data file, one line per patron. Sample data
 includes a unique 4-digit unique ID number, last name, first name. A blank separates fields. For example:
 1234 Mouse Mickey
 You can assume correctly formatted data. The assumption about more information applies also to a patron.
-–While normally you would expect a program like this to be interactive, to test your program, a third data file
+– While normally you would expect a program like this to be interactive, to test your program, a third data file
 is used to simulate the interaction. It contains an arbitrary sequence of commands, one per line. The first
 char of each line ('C' for check-out, 'R' for return, 'H' to display a patron’s history) indicates the action for a
 patron, or 'D' for library display of the three categories of books, sorted within the category. When it is a
@@ -58,6 +58,7 @@ R 1234 F H Walker Alice, The Color Purple,
 X 5678 C Z Yertle the Turtle, Seuss Dr.,
 R 5678 W H Yertle the Turtle, Seuss Dr.,
 R 9999 C H Blah Blah Blah, Blah Blah,
+
 The data is correctly formatted, but you must handle an invalid action code, an incorrect patron ID (not
 found), invalid format code, and invalid book (not found). For example, the 'X' is an invalid action code; 9999
 is not a valid patron ID (not a data item from the patron data file); ‘Z’ is an invalid format type; the 'W' is an
@@ -89,11 +90,4 @@ that gets you to the bool value for the letter you're looking up. Traversing the
 into the array to find your information. Students are not contiguously sorted in any manner, but I can
 quickly do a look-up given your ID number. The array element, table[IDnumber], is your information. Note
 that there is wasted memory, but that leaves room for growth.
-– A requirement of this assignment is to use inheritance. In general, avoid templates for your primary data
-structures. Best to run your template use by me, as this assignment is designed for you to practice using
-inheritance. There are no other specific requirements for this assignment, but as always it should be well
-designed (not violate design principles), easily extensible, efficiently coded, well documented, etc.
-– This assignment is to be fully object-oriented so when you store multiple pieces of information, it would be
-stored in an object. Strings are only to be used in a primitive sense, for example, one name, one title, one of
-anything. Do NOT read long strings (e.g., one line of data). Do NOT build long strings that hold information.
-No string concatenation, no toString(). Functions will NOT have a string parameter for any datafile data.
+
